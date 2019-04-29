@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import data from '../../data';
+import dataset1 from '../../dataset1';
 
 @Component({
   selector: 'app-bar-chart',
@@ -7,6 +7,11 @@ import data from '../../data';
   styleUrls: ['./bar-chart.component.css']
 })
 export class BarChartComponent implements OnInit {
+
+  chartTypeNumOfLikesPerTagPerMonth = "bar"
+  chartDataNumOfLikesPerTagPerMonth = []
+  chartLabelsNumOfLikesPerTagPerMonth = []
+
   constructor() { }
 
   ngOnInit() {

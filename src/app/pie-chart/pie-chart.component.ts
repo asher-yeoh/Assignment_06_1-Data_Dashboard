@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import data from '../../data';
+import imageGallery from '../../imageGallery';
 
 @Component({
   selector: 'app-pie-chart',
@@ -19,10 +19,10 @@ export class PieChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    //NumOfLikesPerTag
+    //Number Of Likes Per Tag
     let datasetNumOfLikesPerTag = []
     let numOfLikesPerTag = {}
-    for( let likeCount of data){
+    for( let likeCount of imageGallery){
       for (let tag of likeCount.tags) {
         if(!numOfLikesPerTag[tag]){
           numOfLikesPerTag[tag] = 0
@@ -40,10 +40,10 @@ export class PieChartComponent implements OnInit {
       data: datasetNumOfLikesPerTag
     })
 
-    //NumOfImagesPerTag
+    //Number Of Images Per Tag
     let datasetNumOfImagesPerTag = []
     let numOfImagesPerTag = {}
-    for( let likeCount of data){
+    for( let likeCount of imageGallery){
       for (let tag of likeCount.tags) {
         if(!numOfImagesPerTag[tag]){
           numOfImagesPerTag[tag] = 0
@@ -60,5 +60,7 @@ export class PieChartComponent implements OnInit {
     this.chartDataNumOfImagesPerTag.push({
       data: datasetNumOfImagesPerTag
     })
+
   }
+  
 }

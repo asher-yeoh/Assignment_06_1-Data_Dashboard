@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import dataset from '../../dataset';
+import data from '../../data';
 
 @Component({
   selector: 'app-pie-chart',
@@ -12,13 +12,17 @@ export class PieChartComponent implements OnInit {
   chartDataNumOfLikesPerTag = []
   chartLabelsNumOfLikesPerTag = []
 
+  chartTypeNumOfImagesPerTag = "pie"
+  chartDataNumOfImagesPerTag = []
+  chartLabelsNumOfImagesPerTag = []
+
   constructor() { }
 
   ngOnInit() {
     //NumOfLikesPerTag
     let datasetNumOfLikesPerTag = []
     let numOfLikesPerTag = {}
-    for( let likeCount of dataset){
+    for( let likeCount of data){
       for (let tag of likeCount.tags) {
         if(!numOfLikesPerTag[tag]){
           numOfLikesPerTag[tag] = 0
@@ -36,7 +40,25 @@ export class PieChartComponent implements OnInit {
       data: datasetNumOfLikesPerTag
     })
 
+    //NumOfImagesPerTag
+    let datasetNumOfImagesPerTag = []
+    let numOfImagesPerTag = {}
+    for( let likeCount of data){
+      for (let tag of likeCount.tags) {
+        if(!numOfImagesPerTag[tag]){
+          numOfImagesPerTag[tag] = 0
+        }
+        numOfImagesPerTag[tag] += 1
+      }
+    }
 
+    this.chartLabelsNumOfImagesPerTag = Object.keys(numOfImagesPerTag)
+    for( let tags of Object.keys(numOfImagesPerTag)){
+      datasetNumOfImagesPerTag.push(numOfImagesPerTag[tags])
+    }
+
+    this.chartDataNumOfImagesPerTag.push({
+      data: datasetNumOfImagesPerTag
+    })
   }
-
 }

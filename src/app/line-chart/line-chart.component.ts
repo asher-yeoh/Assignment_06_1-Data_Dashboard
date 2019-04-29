@@ -42,11 +42,11 @@ export class LineChartComponent implements OnInit {
       tempMonthlyImages[month] += 1
     }
 
-    this.chartLabelsNumOfImagesPerMonth = Object.keys(monthlyImages)
-        
     for(let image of Object.keys(tempMonthlyImages)){
       monthlyImages[image] = tempMonthlyImages[image]
     }
+
+    this.chartLabelsNumOfImagesPerMonth = Object.keys(monthlyImages)
 
     for (let image of Object.keys(monthlyImages)) {
       dataNumOfImagesPerMonth.push(monthlyImages[image])

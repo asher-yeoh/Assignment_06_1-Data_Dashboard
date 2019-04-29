@@ -40,7 +40,6 @@ export class LineChartComponent implements OnInit {
         tempMonthlyImages[month] = 0
       }
       tempMonthlyImages[month] += 1
-    
     }
 
     this.chartLabelsNumOfImagesPerMonth = Object.keys(monthlyImages)

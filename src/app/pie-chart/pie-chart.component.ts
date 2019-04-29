@@ -43,6 +43,7 @@ export class PieChartComponent implements OnInit {
     //Number Of Images Per Tag
     let datasetNumOfImagesPerTag = []
     let numOfImagesPerTag = {}
+    
     for( let likeCount of imageGallery){
       for (let tag of likeCount.tags) {
         if(!numOfImagesPerTag[tag]){
@@ -62,5 +63,5 @@ export class PieChartComponent implements OnInit {
     })
 
   }
-  
+
 }
